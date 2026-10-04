@@ -42,7 +42,7 @@
         }
 
         .brand-header h1 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
             letter-spacing: 1px;
             margin-bottom: 5px;
@@ -77,7 +77,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            max-height: 360px;
+            max-height: 380px;
             overflow-y: auto;
         }
 
@@ -108,7 +108,7 @@
             opacity: 0.8;
         }
 
-        /* --- 2. HALAMAN KASIR MENU (STYLE MENU MEJA) --- */
+        /* --- 2. HALAMAN KASIR MENU --- */
         .app-header {
             background: #d32f2f;
             color: white;
@@ -131,8 +131,12 @@
         }
 
         .header-title {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
+            max-width: 180px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .btn-wa-catalog {
@@ -159,10 +163,10 @@
             background: #d32f2f;
             color: white;
             font-weight: 800;
-            font-size: 14px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            margin: 15px 0 10px 0;
+            font-size: 13px;
+            padding: 7px 12px;
+            border-radius: 6px;
+            margin: 18px 0 10px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: flex;
@@ -199,16 +203,16 @@
 
         .menu-card img {
             width: 100%;
-            height: 90px;
+            height: 95px;
             object-fit: cover;
             border-radius: 6px;
             margin-bottom: 8px;
         }
 
         .menu-card h4 {
-            font-size: 13px;
+            font-size: 12px;
             color: #222;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             font-weight: bold;
             line-height: 1.2;
         }
@@ -223,12 +227,12 @@
             margin-top: auto;
         }
 
-        /* --- RINGKASAN STIKER BELANJA --- */
+        /* --- RINGKASAN KERANJANG BELANJA --- */
         .cart-box {
             background: white;
             border-radius: 12px;
             padding: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             border-top: 4px solid #d32f2f;
         }
@@ -243,7 +247,7 @@
 
         .cart-list {
             min-height: 50px;
-            max-height: 150px;
+            max-height: 200px;
             overflow-y: auto;
             margin-bottom: 10px;
         }
@@ -251,9 +255,26 @@
         .cart-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             font-size: 13px;
-            padding: 5px 0;
-            border-bottom: 1px solid #f9f9f9;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-qty {
+            background: #eee;
+            border: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         .empty-cart {
@@ -268,7 +289,7 @@
             justify-content: space-between;
             font-size: 16px;
             font-weight: bold;
-            padding-top: 8px;
+            padding-top: 10px;
             border-top: 2px solid #eee;
             margin-bottom: 12px;
         }
@@ -307,12 +328,12 @@
         <div class="outlet-selection-card">
             <h3><i class="fa-solid fa-store"></i> DAFTAR CABANG OUTLET</h3>
             <div class="outlet-list" id="outlet-list">
-                <!-- 10 Outlet Otomatis Dibuat Lewat JS -->
+                <!-- Outlet Otomatis Dibuat Lewat JS -->
             </div>
         </div>
     </div>
 
-    <!-- 2. LAYAR KASIR DENGAN MENU PRICE A3 -->
+    <!-- 2. LAYAR KASIR MENU -->
     <div id="kasir-screen" class="screen">
         <header class="app-header">
             <button class="btn-back" onclick="goToLanding()"><i class="fa-solid fa-arrow-left"></i></button>
@@ -328,16 +349,20 @@
             <div class="category-header"><i class="fa-solid fa-drumstick-bite"></i> FRIED CHICKEN & AYAM GEPREK</div>
             <div class="menu-grid" id="grid-chicken"></div>
 
-            <!-- KATEGORI 2: PAKET SUPER HEMAT (SUHE) -->
+            <!-- KATEGORI 2: FAVORIT -->
+            <div class="category-header"><i class="fa-solid fa-fire"></i> MENU FAVORIT</div>
+            <div class="menu-grid" id="grid-favorit"></div>
+
+            <!-- KATEGORI 3: PAKET SUPER HEMAT (SUHE) -->
             <div class="category-header"><i class="fa-solid fa-box"></i> PAKET SUPER HEMAT (SUHE)</div>
             <div class="menu-grid" id="grid-suhe"></div>
 
-            <!-- KATEGORI 3: PAKET SHOLEH -->
+            <!-- KATEGORI 4: PAKET SHOLEH -->
             <div class="category-header"><i class="fa-solid fa-star"></i> PAKET SHOLEH</div>
             <div class="menu-grid" id="grid-sholeh"></div>
 
-            <!-- KATEGORI 4: CAMILAN & MINUMAN -->
-            <div class="category-header"><i class="fa-solid fa-mug-hot"></i> CAMILAN & MINUM</div>
+            <!-- KATEGORI 5: CAMILAN & MINUMAN -->
+            <div class="category-header"><i class="fa-solid fa-mug-hot"></i> CAMILAN & MINUMAN</div>
             <div class="menu-grid" id="grid-camilan"></div>
 
             <!-- KERANJANG BELANJA -->
@@ -360,47 +385,67 @@
 
     <!-- SCRIPT JAVASCRIPT LOGIKA -->
     <script>
-        // DATA 10 CABANG OUTLET
+        // DATA OUTLET
         const outlets = [
-            { id: 1, name: "Geprek Sa'i - Outlet Nganjuk Megantoro", phone: "6281359235905", catalog: "https://wa.me/c/6281359235905" },
-            { id: 2, name: "Geprek Sa'i - Outlet Caruban", phone: "6282111993146", catalog: "https://wa.me/c/6282111993146" },
-            { id: 3, name: "Geprek Sa'i - Outlet Nganjuk Berbek", phone: "6281233481199", catalog: "https://wa.me/c/6281233481199" },
-            { id: 4, name: "Geprek Sa'i - Outlet Nganjuk A yani", phone: "6281252393949", catalog: "https://wa.me/c/6281252393949" },
-            { id: 5, name: "Geprek Sa'i - Outlet Nganjuk Begadung", phone: "6282337687877", catalog: "https://wa.me/c/6282337687877" },
-            { id: 6, name: "Geprek Sa'i - Outlet Nganjuk Ar Saleh", phone: "628213366174", catalog: "https://wa.me/c/628213366174" },
-            { id: 7, name: "Geprek Sa'i - Outlet Kertosono", phone: "6281231261641", catalog: "https://wa.me/c/6281231261641" },
-            { id: 8, name: "Geprek Sa'i - Outlet Kediri Wonoasri", phone: "6282140970634", catalog: "https://wa.me/c/6282140970634" },
-            { id: 9, name: "Geprek Sa'i - Outlet Kediri Bandar Lor", phone: "6281234505440", catalog: "https://wa.me/c/6281234505440" },
-            { id: 10, name: "Geprek Sa'i -  ", phone: "", catalog: "https://wa.me/c/6287765273073" }
+            { id: 1, name: "Geprek Sa'i - Nganjuk Megantoro", phone: "6281359235905", catalog: "https://wa.me/c/6281359235905" },
+            { id: 2, name: "Geprek Sa'i - Caruban", phone: "6282111993146", catalog: "https://wa.me/c/6282111993146" },
+            { id: 3, name: "Geprek Sa'i - Nganjuk Berbek", phone: "6281233481199", catalog: "https://wa.me/c/6281233481199" },
+            { id: 4, name: "Geprek Sa'i - Nganjuk A Yani", phone: "6281252393949", catalog: "https://wa.me/c/6281252393949" },
+            { id: 5, name: "Geprek Sa'i - Nganjuk Begadung", phone: "6282337687877", catalog: "https://wa.me/c/6282337687877" },
+            { id: 6, name: "Geprek Sa'i - Nganjuk Ar Saleh", phone: "628213366174", catalog: "https://wa.me/c/628213366174" },
+            { id: 7, name: "Geprek Sa'i - Kertosono", phone: "6281231261641", catalog: "https://wa.me/c/6281231261641" },
+            { id: 8, name: "Geprek Sa'i - Kediri Wonoasri", phone: "6282140970634", catalog: "https://wa.me/c/6282140970634" },
+            { id: 9, name: "Geprek Sa'i - Kediri Bandar Lor", phone: "6281234505440", catalog: "https://wa.me/c/6281234505440" }
         ];
 
-        // DAFTAR MENU DENGAN DESAIN DAN KATEGORI SESUAI GAMBAR DENGAN HARGA DARI DAFTAR MENU A3
+        // DATA MENU LENGKAP DARI POSTER A3 SA'I
         const menuData = [
             // Fried Chicken & Geprek
-            { cat: "chicken", name: "Fried Chicken (Sayap)", price: 9000, img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=300&auto=format&fit=crop&q=80" },
-            { cat: "chicken", name: "Ayam Geprek (Dada)", price: 15500, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
-            
+            { cat: "chicken", name: "FC Sayap", price: 9000, img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=300&auto=format&fit=crop&q=80" },
+            { cat: "chicken", name: "FC Paha Bawah", price: 10500, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
+            { cat: "chicken", name: "FC Paha Atas / Dada", price: 14000, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
+            { cat: "chicken", name: "Geprek Sayap", price: 11000, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+            { cat: "chicken", name: "Geprek Paha Bawah", price: 12500, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+            { cat: "chicken", name: "Geprek Paha Atas/Dada", price: 15500, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+            { cat: "chicken", name: "Geprek Tanpa Tulang", price: 14000, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+
+            // Favorit
+            { cat: "favorit", name: "Nasgor", price: 13000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300&auto=format&fit=crop&q=80" },
+            { cat: "favorit", name: "Nasgor Telur", price: 15000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300&auto=format&fit=crop&q=80" },
+            { cat: "favorit", name: "Nasgor Sayap", price: 18000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300&auto=format&fit=crop&q=80" },
+            { cat: "favorit", name: "Chicken Burger", price: 13000, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&auto=format&fit=crop&q=80" },
+            { cat: "favorit", name: "Cheese Burger", price: 15000, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&auto=format&fit=crop&q=80" },
+            { cat: "favorit", name: "Chicken Teriyaki", price: 12500, img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=300&auto=format&fit=crop&q=80" },
+            { cat: "favorit", name: "Chicken Steak", price: 15000, img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=300&auto=format&fit=crop&q=80" },
+            { cat: "favorit", name: "Kwetiauw", price: 13000, img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300&auto=format&fit=crop&q=80" },
+
             // Paket Super Hemat (Suhe)
-            { cat: "suhe", name: "Fried Chicken 1 (Nasi+Sayap+Teh)", price: 16000, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
-            { cat: "suhe", name: "Fried Chicken 2 (Nasi+Paha+Teh)", price: 17000, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
-            { cat: "suhe", name: "Paket Geprek 1 (Geprek+Nasi+Teh)", price: 16500, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
-            { cat: "suhe", name: "Paket Geprek 3 (Geprek Dada+Nasi+Teh)", price: 21000, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+            { cat: "suhe", name: "Suhe 1 (Nasi+Sayap+Teh)", price: 16000, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
+            { cat: "suhe", name: "Suhe 2 (Nasi+Paha Bwh+Teh)", price: 17000, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
+            { cat: "suhe", name: "Suhe 3 (Nasi+Paha Atas+Teh)", price: 20000, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
+            { cat: "suhe", name: "Paket Geprek 1 (Nasi+Sayap+Teh)", price: 16500, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+            { cat: "suhe", name: "Paket Geprek 2 (Nasi+Paha Bwh+Teh)", price: 17500, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+            { cat: "suhe", name: "Paket Geprek 3 (Nasi+Paha Atas+Teh)", price: 21000, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
 
             // Paket Sholeh
-            { cat: "sholeh", name: "Sholeh 1 (French Fries + Botol Sosro)", price: 14000, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300&auto=format&fit=crop&q=80" },
-            { cat: "sholeh", name: "Sholeh 2 (Chicken Steak + Botol Sosro)", price: 18000, img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=300&auto=format&fit=crop&q=80" },
+            { cat: "sholeh", name: "Sholeh 1 (F.Fries + Botol Sosro)", price: 14000, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300&auto=format&fit=crop&q=80" },
+            { cat: "sholeh", name: "Sholeh 2 (Steak + Botol Sosro)", price: 18000, img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=300&auto=format&fit=crop&q=80" },
+            { cat: "sholeh", name: "Sholeh 3 (Nasgor Sayap + Es Coklat)", price: 22000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300&auto=format&fit=crop&q=80" },
             { cat: "sholeh", name: "Sholeh 4 (Burger + Es Coklat)", price: 19000, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&auto=format&fit=crop&q=80" },
 
             // Camilan & Minuman
             { cat: "camilan", name: "French Fries", price: 9000, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300&auto=format&fit=crop&q=80" },
+            { cat: "camilan", name: "Chicken Strips", price: 11000, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
+            { cat: "camilan", name: "Tahu / Jamur / Terong Crispy", price: 8000, img: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=300&auto=format&fit=crop&q=80" },
             { cat: "camilan", name: "Teh Manis Panas / Es", price: 4000, img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&auto=format&fit=crop&q=80" },
+            { cat: "camilan", name: "Jeruk Panas / Es", price: 5000, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&auto=format&fit=crop&q=80" },
             { cat: "camilan", name: "Es Coklat Float", price: 10000, img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&auto=format&fit=crop&q=80" }
         ];
 
         let selectedOutlet = null;
         let cart = [];
 
-        // LOAD OUTLET PADA HALAMAN PERTAMA
+        // RENDER DAFTAR OUTLET
         function renderOutletList() {
             const container = document.getElementById("outlet-list");
             container.innerHTML = "";
@@ -409,7 +454,7 @@
                     <div class="outlet-item" onclick="selectOutlet(${o.id})">
                         <div>
                             <h4>${o.name}</h4>
-                            <p>Klik untuk memilih menu cabang ini</p>
+                            <p>Klik untuk mulai memesan</p>
                         </div>
                         <i class="fa-solid fa-chevron-right"></i>
                     </div>
@@ -439,10 +484,12 @@
 
         // RENDER MENU SESUAI KATEGORI
         function renderMenu() {
-            const categories = ["chicken", "suhe", "sholeh", "camilan"];
+            const categories = ["chicken", "favorit", "suhe", "sholeh", "camilan"];
 
             categories.forEach(cat => {
                 const container = document.getElementById(`grid-${cat}`);
+                if (!container) return;
+                
                 container.innerHTML = "";
                 const filtered = menuData.filter(m => m.cat === cat);
 
@@ -458,9 +505,25 @@
             });
         }
 
-        // KERANJANG
+        // KERANJANG BELANJA & KUANTITAS (QTY)
         function addToCart(name, price) {
-            cart.push({ name, price });
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function changeQty(name, delta) {
+            const item = cart.find(i => i.name === name);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+            }
             updateCartUI();
         }
 
@@ -478,11 +541,19 @@
             let total = 0;
 
             cart.forEach(item => {
-                total += item.price;
+                const subtotal = item.price * item.qty;
+                total += subtotal;
                 list.innerHTML += `
                     <div class="cart-item">
-                        <span>${item.name}</span>
-                        <strong>Rp ${item.price.toLocaleString('id-ID')}</strong>
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <small>Rp ${item.price.toLocaleString('id-ID')}</small>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="btn-qty" onclick="changeQty('${item.name}', -1)">-</button>
+                            <span>${item.qty}</span>
+                            <button class="btn-qty" onclick="changeQty('${item.name}', 1)">+</button>
+                        </div>
                     </div>
                 `;
             });
@@ -490,7 +561,7 @@
             totalEl.innerText = `Rp ${total.toLocaleString('id-ID')}`;
         }
 
-        // KIRIM VIA WHATSAPP OUTLET
+        // KIRIM PESAN KE WHATSAPP OUTLET
         function kirimKeWhatsApp() {
             if (cart.length === 0) {
                 alert("Pilih menu terlebih dahulu!");
@@ -501,8 +572,9 @@
             let total = 0;
 
             cart.forEach((item, index) => {
-                text += `${index + 1}. ${item.name} - Rp ${item.price.toLocaleString('id-ID')}\n`;
-                total += item.price;
+                const subtotal = item.price * item.qty;
+                text += `${index + 1}. ${item.name} (${item.qty}x) = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+                total += subtotal;
             });
 
             text += `\n*TOTAL BAYAR: Rp ${total.toLocaleString('id-ID')}*\n\n`;
@@ -512,7 +584,7 @@
             window.open(url, '_blank');
         }
 
-        // INI INISIALISASI UTAMA
+        // INISIALISASI
         renderOutletList();
     </script>
 </body>
