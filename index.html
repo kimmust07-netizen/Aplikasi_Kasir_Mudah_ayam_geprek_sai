@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Kasir Outlet & Katalog WhatsApp</title>
-    <!-- FontAwesome untuk ikon -->
+    <title>Aplikasi Kasir Outlet - Ayam Geprek Sa'i</title>
+    <!-- FontAwesome Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -12,12 +12,12 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background-color: #f4f6f9;
-            color: #333;
+            background-color: #f4f4f4;
+            color: #222;
         }
 
         .screen {
@@ -29,125 +29,97 @@
             display: block;
         }
 
-        /* --- 1. LANDING SCREEN / HALAMAN AWAL --- */
+        /* --- 1. HALAMAN UTAMA / LANDING SCREEN --- */
         #landing-screen {
-            background: #ffffff;
-            padding-bottom: 30px;
-        }
-
-        .hero-banner {
-            position: relative;
-            height: 220px;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, #e52d27, #b31217);
             color: white;
-            text-align: center;
             padding: 20px;
+            text-align: center;
         }
 
-        .hero-banner h1 {
-            font-size: 24px;
+        .brand-header {
+            padding: 30px 10px;
+        }
+
+        .brand-header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
             margin-bottom: 5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-transform: uppercase;
         }
 
-        .hero-banner p {
-            font-size: 13px;
+        .brand-header p {
+            font-size: 14px;
             opacity: 0.9;
         }
 
-        .outlet-selection-box {
-            max-width: 500px;
-            margin: -20px auto 0 auto;
+        .outlet-selection-card {
             background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            position: relative;
-            z-index: 10;
-            width: 90%;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
             color: #333;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            border-radius: 16px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: left;
         }
 
-        .outlet-grid {
+        .outlet-selection-card h3 {
+            color: #d32f2f;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .outlet-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            max-height: 380px;
+            max-height: 360px;
             overflow-y: auto;
-            padding-right: 5px;
         }
 
-        .outlet-card {
+        .outlet-item {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
+            align-items: center;
             padding: 12px 15px;
+            background: #fff8f8;
+            border: 1px solid #ffcdd2;
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
         }
 
-        .outlet-card:hover, .outlet-card:active {
-            background: #e8f5e9;
-            border-color: #2e7d32;
+        .outlet-item:hover, .outlet-item:active {
+            background: #d32f2f;
+            color: white;
+            border-color: #d32f2f;
         }
 
-        .outlet-info h4 {
+        .outlet-item h4 {
             font-size: 14px;
-            color: #2c3e50;
         }
 
-        .outlet-info p {
+        .outlet-item p {
             font-size: 11px;
-            color: #6c757d;
-            margin-top: 2px;
+            opacity: 0.8;
         }
 
-        .badge-wa {
-            background: #25d366;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* --- 2. KASIR & MENU SCREEN --- */
+        /* --- 2. HALAMAN KASIR MENU (STYLE MENU MEJA) --- */
         .app-header {
-            background: #007bff;
+            background: #d32f2f;
             color: white;
-            padding: 15px;
+            padding: 12px 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: sticky;
             top: 0;
             z-index: 100;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
 
         .btn-back {
@@ -158,9 +130,9 @@
             cursor: pointer;
         }
 
-        .active-outlet-name {
-            font-size: 14px;
-            font-weight: 600;
+        .header-title {
+            font-size: 15px;
+            font-weight: bold;
         }
 
         .btn-wa-catalog {
@@ -168,8 +140,8 @@
             color: white;
             text-decoration: none;
             padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 11px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -177,75 +149,102 @@
         }
 
         .container {
-            padding: 15px;
             max-width: 600px;
             margin: 0 auto;
+            padding: 12px;
         }
 
-        /* Card Visual Menu */
+        /* HEADINGS KATEGORI ALA BANNER MENU RED */
+        .category-header {
+            background: #d32f2f;
+            color: white;
+            font-weight: 800;
+            font-size: 14px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin: 15px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* GRID MENU CARD */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 10px;
         }
 
         .menu-card {
             background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            border: 1px solid #eee;
-            cursor: pointer;
-            transition: transform 0.1s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .menu-card:active {
-            transform: scale(0.98);
-        }
-
-        .menu-img {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-        }
-
-        .menu-details {
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
             padding: 10px;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.1s;
         }
 
-        .menu-details h4 {
+        .menu-card:active {
+            transform: scale(0.97);
+            background: #fff5f5;
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .menu-card h4 {
             font-size: 13px;
-            color: #333;
+            color: #222;
             margin-bottom: 4px;
-        }
-
-        .menu-details .price {
-            color: #007bff;
             font-weight: bold;
-            font-size: 13px;
+            line-height: 1.2;
         }
 
-        /* --- RINCIAN BELANJA --- */
-        .cart-section {
-            background: white;
-            padding: 15px;
+        .price-tag {
+            background: #d32f2f;
+            color: white;
+            font-weight: 800;
+            font-size: 12px;
+            padding: 3px 8px;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-top: auto;
+        }
+
+        /* --- RINGKASAN STIKER BELANJA --- */
+        .cart-box {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-top: 4px solid #d32f2f;
+        }
+
+        .cart-box h3 {
+            font-size: 15px;
+            color: #d32f2f;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 8px;
         }
 
         .cart-list {
-            min-height: 60px;
-            max-height: 160px;
+            min-height: 50px;
+            max-height: 150px;
             overflow-y: auto;
-            border-bottom: 1px dashed #ddd;
-            padding-bottom: 10px;
             margin-bottom: 10px;
         }
 
@@ -253,32 +252,32 @@
             display: flex;
             justify-content: space-between;
             font-size: 13px;
-            margin-bottom: 8px;
+            padding: 5px 0;
+            border-bottom: 1px solid #f9f9f9;
         }
 
         .empty-cart {
-            color: #888;
-            font-size: 13px;
             text-align: center;
-            margin-top: 15px;
+            color: #888;
+            font-size: 12px;
+            padding: 15px 0;
         }
 
-        .cart-footer {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .total-box {
+        .total-row {
             display: flex;
             justify-content: space-between;
             font-size: 16px;
+            font-weight: bold;
+            padding-top: 8px;
+            border-top: 2px solid #eee;
+            margin-bottom: 12px;
         }
 
-        .btn-checkout {
+        .btn-order-wa {
             background: #25d366;
             color: white;
             border: none;
+            width: 100%;
             padding: 12px;
             font-size: 14px;
             font-weight: bold;
@@ -290,236 +289,145 @@
             gap: 8px;
         }
 
-        .btn-checkout:active {
+        .btn-order-wa:active {
             background: #1ebd56;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. HALAMAN AWAL (BANNER & PILIHAN OUTLET) -->
+    <!-- 1. LAYAR AWAL / BANNER & OUTLET -->
     <div id="landing-screen" class="screen active">
-        <div class="hero-banner">
-            <h1>RESTO & CAFE OUTLET</h1>
-            <p>Pilih outlet terdekat untuk melihat menu & memesan</p>
+        <div class="brand-header">
+            <i class="fa-solid fa-drumstick-bite" style="font-size: 45px; margin-bottom: 10px;"></i>
+            <h1>AYAM GEPREK SA'I</h1>
+            <p>Pilih Cabang Outlet Terdekat Untuk Memesan</p>
         </div>
 
-        <div class="outlet-selection-box">
-            <div class="section-title">
-                <i class="fa-solid fa-store" style="color: #007bff;"></i>
-                Pilih Cabang Outlet
-            </div>
-            <div class="outlet-grid" id="outlet-grid">
-                <!-- 10 Outlet dirender otomatis via JS -->
+        <div class="outlet-selection-card">
+            <h3><i class="fa-solid fa-store"></i> DAFTAR CABANG OUTLET</h3>
+            <div class="outlet-list" id="outlet-list">
+                <!-- 10 Outlet Otomatis Dibuat Lewat JS -->
             </div>
         </div>
     </div>
 
-    <!-- 2. HALAMAN MENU KASIR OUTLET -->
+    <!-- 2. LAYAR KASIR DENGAN MENU PRICE A3 -->
     <div id="kasir-screen" class="screen">
         <header class="app-header">
-            <div class="header-left">
-                <button class="btn-back" onclick="goToLanding()"><i class="fa-solid fa-arrow-left"></i></button>
-                <div>
-                    <div class="active-outlet-name" id="current-outlet-title">Outlet Name</div>
-                </div>
-            </div>
-            <!-- Link ke Katalog WhatsApp Asli Outlet -->
+            <button class="btn-back" onclick="goToLanding()"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="header-title" id="active-outlet-name">Nama Outlet</div>
             <a href="#" id="wa-catalog-link" target="_blank" class="btn-wa-catalog">
                 <i class="fa-brands fa-whatsapp"></i> Katalog WA
             </a>
         </header>
 
         <div class="container">
-            <section class="menu-section">
-                <div class="section-title">
-                    <i class="fa-solid fa-utensils" style="color: #007bff;"></i>
-                    Daftar Menu & Harga
-                </div>
-                <div class="menu-grid" id="menu-grid">
-                    <!-- Dynamic rendering gambar & menu -->
-                </div>
-            </section>
+            
+            <!-- KATEGORI 1: FRIED CHICKEN & GEPREK -->
+            <div class="category-header"><i class="fa-solid fa-drumstick-bite"></i> FRIED CHICKEN & AYAM GEPREK</div>
+            <div class="menu-grid" id="grid-chicken"></div>
 
-            <section class="cart-section">
-                <div class="section-title">
-                    <i class="fa-solid fa-cart-shopping" style="color: #007bff;"></i>
-                    Rincian Pesanan
-                </div>
+            <!-- KATEGORI 2: PAKET SUPER HEMAT (SUHE) -->
+            <div class="category-header"><i class="fa-solid fa-box"></i> PAKET SUPER HEMAT (SUHE)</div>
+            <div class="menu-grid" id="grid-suhe"></div>
+
+            <!-- KATEGORI 3: PAKET SHOLEH -->
+            <div class="category-header"><i class="fa-solid fa-star"></i> PAKET SHOLEH</div>
+            <div class="menu-grid" id="grid-sholeh"></div>
+
+            <!-- KATEGORI 4: CAMILAN & MINUMAN -->
+            <div class="category-header"><i class="fa-solid fa-mug-hot"></i> CAMILAN & MINUM</div>
+            <div class="menu-grid" id="grid-camilan"></div>
+
+            <!-- KERANJANG BELANJA -->
+            <div class="cart-box">
+                <h3><i class="fa-solid fa-receipt"></i> Rincian Pesanan</h3>
                 <div class="cart-list" id="cart-list">
-                    <p class="empty-cart">Klik menu di atas untuk menambahkan.</p>
+                    <p class="empty-cart">Klik menu di atas untuk menambah pesanan.</p>
                 </div>
-                
-                <div class="cart-footer">
-                    <div class="total-box">
-                        <span>Total Belanja:</span>
-                        <strong id="total-price" style="color: #2e7d32;">Rp 0</strong>
-                    </div>
-                    <button class="btn-checkout" onclick="kirimKeWhatsApp()">
-                        <i class="fa-brands fa-whatsapp"></i> Kirim Pesanan ke WA Outlet
-                    </button>
+                <div class="total-row">
+                    <span>TOTAL:</span>
+                    <span id="total-price" style="color: #d32f2f;">Rp 0</span>
                 </div>
-            </section>
+                <button class="btn-order-wa" onclick="kirimKeWhatsApp()">
+                    <i class="fa-brands fa-whatsapp"></i> Kirim Pesanan ke WA Outlet
+                </button>
+            </div>
+
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- SCRIPT JAVASCRIPT LOGIKA -->
     <script>
-        // --- DATA 10 OUTLET + KATALOG WA + DAFTAR MENU & HARGA MASING-MASING ---
+        // DATA 10 CABANG OUTLET
         const outlets = [
-            {
-                id: 1,
-                name: "Outlet 01 - Jakarta Pusat",
-                address: "Jl. MH Thamrin No. 12",
-                phone: "6281234567890",
-                catalogUrl: "https://wa.me/c/6281234567890",
-                menu: [
-                    { name: "Nasi Goreng Jaksel", price: 25000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Es Kopi Milk Jaksel", price: 18000, img: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Ayam Bakar Madu", price: 28000, img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=300&q=80" }
-                ]
-            },
-            {
-                id: 2,
-                name: "Outlet 02 - Jakarta Selatan",
-                address: "Jl. Senopati No. 45",
-                phone: "6281234567891",
-                catalogUrl: "https://wa.me/c/6281234567891",
-                menu: [
-                    { name: "Nasi Goreng Wagyu", price: 35000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Matcha Latte Premium", price: 22000, img: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=300&q=80" },
-                    { name: "French Fries Gourmet", price: 18000, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=300&q=80" }
-                ]
-            },
-            {
-                id: 3,
-                name: "Outlet 03 - Bandung Kota",
-                address: "Jl. Riau No. 88",
-                phone: "6281234567892",
-                catalogUrl: "https://wa.me/c/6281234567892",
-                menu: [
-                    { name: "Nasi Goreng Rempah", price: 20000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Teh Tarik Bandung", price: 12000, img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Cuanki Komplit", price: 18000, img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=300&q=80" }
-                ]
-            },
-            {
-                id: 4,
-                name: "Outlet 04 - Surabaya Gubeng",
-                address: "Jl. Pemuda No. 15",
-                phone: "6281234567893",
-                catalogUrl: "https://wa.me/c/6281234567893",
-                menu: [
-                    { name: "Nasi Goreng Jowo", price: 18000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Es Sinom Segar", price: 8000, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Rawon Daging Premium", price: 30000, img: "https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=300&q=80" }
-                ]
-            },
-            {
-                id: 5,
-                name: "Outlet 05 - Yogyakarta",
-                address: "Jl. Malioboro No. 101",
-                phone: "6281234567894",
-                catalogUrl: "https://wa.me/c/6281234567894",
-                menu: [
-                    { name: "Nasi Goreng Telur", price: 15000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Wedang Jahe Warm", price: 7000, img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Ayam Geprek Jogja", price: 16000, img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=300&q=80" }
-                ]
-            },
-            {
-                id: 6,
-                name: "Outlet 06 - Bali Denpasar",
-                address: "Jl. Teuku Umar No. 50",
-                phone: "6281234567895",
-                catalogUrl: "https://wa.me/c/6281234567895",
-                menu: [
-                    { name: "Nasi Goreng Seafood", price: 30000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Fresh Kelapa Muda", price: 15000, img: "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Ayam Betutu Portion", price: 32000, img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=300&q=80" }
-                ]
-            },
-            {
-                id: 7,
-                name: "Outlet 07 - Medan Baru",
-                address: "Jl. Gajah Mada No. 22",
-                phone: "6281234567896",
-                catalogUrl: "https://wa.me/c/6281234567896",
-                menu: [
-                    { name: "Nasi Goreng Teri Medan", price: 22000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Kopi Sidikalang", price: 12000, img: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=300&q=80" }
-                ]
-            },
-            {
-                id: 8,
-                name: "Outlet 08 - Semarang Tengah",
-                address: "Jl. Pandanaran No. 70",
-                phone: "6281234567897",
-                catalogUrl: "https://wa.me/c/6281234567897",
-                menu: [
-                    { name: "Nasi Goreng Babat", price: 23000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Es Es Kelapa Jeruk", price: 10000, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=300&q=80" }
-                ]
-            },
-            {
-                id: 9,
-                name: "Outlet 09 - Malang",
-                address: "Jl. Soekarno Hatta No. 9",
-                phone: "6281234567898",
-                catalogUrl: "https://wa.me/c/6281234567898",
-                menu: [
-                    { name: "Nasi Goreng Bakso", price: 19000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Cokelat Klasik Malang", price: 11000, img: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=300&q=80" }
-                ]
-            },
-            {
-                id: 10,
-                name: "Outlet 10 - Makassar",
-                address: "Jl. Losari No. 3",
-                phone: "6281234567899",
-                catalogUrl: "https://wa.me/c/6281234567899",
-                menu: [
-                    { name: "Nasi Goreng Coto", price: 24000, img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=300&q=80" },
-                    { name: "Es Markisa Fresh", price: 12000, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=300&q=80" }
-                ]
-            }
+            { id: 1, name: "Geprek Sa'i - Outlet Nganjuk Megantoro", phone: "6281359235905", catalog: "https://wa.me/c/6281359235905" },
+            { id: 2, name: "Geprek Sa'i - Outlet Caruban", phone: "6282111993146", catalog: "https://wa.me/c/6282111993146" },
+            { id: 3, name: "Geprek Sa'i - Outlet Nganjuk Berbek", phone: "6281233481199", catalog: "https://wa.me/c/6281233481199" },
+            { id: 4, name: "Geprek Sa'i - Outlet Nganjuk A yani", phone: "6281252393949", catalog: "https://wa.me/c/6281252393949" },
+            { id: 5, name: "Geprek Sa'i - Outlet Nganjuk Begadung", phone: "6282337687877", catalog: "https://wa.me/c/6282337687877" },
+            { id: 6, name: "Geprek Sa'i - Outlet Nganjuk Ar Saleh", phone: "628213366174", catalog: "https://wa.me/c/628213366174" },
+            { id: 7, name: "Geprek Sa'i - Outlet Kertosono", phone: "6281231261641", catalog: "https://wa.me/c/6281231261641" },
+            { id: 8, name: "Geprek Sa'i - Outlet Kediri Wonoasri", phone: "6282140970634", catalog: "https://wa.me/c/6282140970634" },
+            { id: 9, name: "Geprek Sa'i - Outlet Kediri Bandar Lor", phone: "6281234505440", catalog: "https://wa.me/c/6281234505440" },
+            { id: 10, name: "Geprek Sa'i -  ", phone: "", catalog: "https://wa.me/c/6287765273073" }
+        ];
+
+        // DAFTAR MENU DENGAN DESAIN DAN KATEGORI SESUAI GAMBAR DENGAN HARGA DARI DAFTAR MENU A3
+        const menuData = [
+            // Fried Chicken & Geprek
+            { cat: "chicken", name: "Fried Chicken (Sayap)", price: 9000, img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=300&auto=format&fit=crop&q=80" },
+            { cat: "chicken", name: "Ayam Geprek (Dada)", price: 15500, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+            
+            // Paket Super Hemat (Suhe)
+            { cat: "suhe", name: "Fried Chicken 1 (Nasi+Sayap+Teh)", price: 16000, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
+            { cat: "suhe", name: "Fried Chicken 2 (Nasi+Paha+Teh)", price: 17000, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=300&auto=format&fit=crop&q=80" },
+            { cat: "suhe", name: "Paket Geprek 1 (Geprek+Nasi+Teh)", price: 16500, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+            { cat: "suhe", name: "Paket Geprek 3 (Geprek Dada+Nasi+Teh)", price: 21000, img: "https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=300&auto=format&fit=crop&q=80" },
+
+            // Paket Sholeh
+            { cat: "sholeh", name: "Sholeh 1 (French Fries + Botol Sosro)", price: 14000, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300&auto=format&fit=crop&q=80" },
+            { cat: "sholeh", name: "Sholeh 2 (Chicken Steak + Botol Sosro)", price: 18000, img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=300&auto=format&fit=crop&q=80" },
+            { cat: "sholeh", name: "Sholeh 4 (Burger + Es Coklat)", price: 19000, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&auto=format&fit=crop&q=80" },
+
+            // Camilan & Minuman
+            { cat: "camilan", name: "French Fries", price: 9000, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=300&auto=format&fit=crop&q=80" },
+            { cat: "camilan", name: "Teh Manis Panas / Es", price: 4000, img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&auto=format&fit=crop&q=80" },
+            { cat: "camilan", name: "Es Coklat Float", price: 10000, img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&auto=format&fit=crop&q=80" }
         ];
 
         let selectedOutlet = null;
         let cart = [];
 
-        // --- RENDER DAFTAR OUTLET DI LANDING ---
+        // LOAD OUTLET PADA HALAMAN PERTAMA
         function renderOutletList() {
-            const grid = document.getElementById("outlet-grid");
-            grid.innerHTML = "";
-            outlets.forEach(outlet => {
-                grid.innerHTML += `
-                    <div class="outlet-card" onclick="selectOutlet(${outlet.id})">
-                        <div class="outlet-info">
-                            <h4>${outlet.name}</h4>
-                            <p>${outlet.address}</p>
+            const container = document.getElementById("outlet-list");
+            container.innerHTML = "";
+            outlets.forEach(o => {
+                container.innerHTML += `
+                    <div class="outlet-item" onclick="selectOutlet(${o.id})">
+                        <div>
+                            <h4>${o.name}</h4>
+                            <p>Klik untuk memilih menu cabang ini</p>
                         </div>
-                        <div class="badge-wa">
-                            Pilih <i class="fa-solid fa-chevron-right"></i>
-                        </div>
+                        <i class="fa-solid fa-chevron-right"></i>
                     </div>
                 `;
             });
         }
 
-        // --- SAAT OUTLET DIPIIH ---
+        // PILIH OUTLET
         function selectOutlet(id) {
             selectedOutlet = outlets.find(o => o.id === id);
-            cart = []; // Reset keranjang
+            cart = [];
 
-            // Update UI Header Kasir
-            document.getElementById("current-outlet-title").innerText = selectedOutlet.name;
-            document.getElementById("wa-catalog-link").href = selectedOutlet.catalogUrl;
+            document.getElementById("active-outlet-name").innerText = selectedOutlet.name;
+            document.getElementById("wa-catalog-link").href = selectedOutlet.catalog;
 
-            // Pindah Layar & Render Menu Sesuai Outlet
             document.getElementById("landing-screen").classList.remove("active");
             document.getElementById("kasir-screen").classList.add("active");
-            
+
             renderMenu();
             updateCartUI();
         }
@@ -529,46 +437,49 @@
             document.getElementById("landing-screen").classList.add("active");
         }
 
-        // --- RENDER MENU & HARGA KHUSUS OUTLET ---
+        // RENDER MENU SESUAI KATEGORI
         function renderMenu() {
-            const grid = document.getElementById("menu-grid");
-            grid.innerHTML = "";
+            const categories = ["chicken", "suhe", "sholeh", "camilan"];
 
-            selectedOutlet.menu.forEach(item => {
-                grid.innerHTML += `
-                    <div class="menu-card" onclick="addToCart('${item.name}', ${item.price})">
-                        <img src="${item.img}" class="menu-img" alt="${item.name}">
-                        <div class="menu-details">
+            categories.forEach(cat => {
+                const container = document.getElementById(`grid-${cat}`);
+                container.innerHTML = "";
+                const filtered = menuData.filter(m => m.cat === cat);
+
+                filtered.forEach(item => {
+                    container.innerHTML += `
+                        <div class="menu-card" onclick="addToCart('${item.name}', ${item.price})">
+                            <img src="${item.img}" alt="${item.name}">
                             <h4>${item.name}</h4>
-                            <div class="price">Rp ${item.price.toLocaleString('id-ID')}</div>
+                            <div class="price-tag">Rp ${item.price.toLocaleString('id-ID')}</div>
                         </div>
-                    </div>
-                `;
+                    `;
+                });
             });
         }
 
-        // --- KERANJANG BELANJA ---
+        // KERANJANG
         function addToCart(name, price) {
             cart.push({ name, price });
             updateCartUI();
         }
 
         function updateCartUI() {
-            const cartList = document.getElementById("cart-list");
-            const totalPriceEl = document.getElementById("total-price");
-            
+            const list = document.getElementById("cart-list");
+            const totalEl = document.getElementById("total-price");
+
             if (cart.length === 0) {
-                cartList.innerHTML = '<p class="empty-cart">Klik menu di atas untuk menambahkan.</p>';
-                totalPriceEl.innerText = 'Rp 0';
+                list.innerHTML = '<p class="empty-cart">Klik menu di atas untuk menambah pesanan.</p>';
+                totalEl.innerText = "Rp 0";
                 return;
             }
 
-            cartList.innerHTML = "";
+            list.innerHTML = "";
             let total = 0;
 
-            cart.forEach((item) => {
+            cart.forEach(item => {
                 total += item.price;
-                cartList.innerHTML += `
+                list.innerHTML += `
                     <div class="cart-item">
                         <span>${item.name}</span>
                         <strong>Rp ${item.price.toLocaleString('id-ID')}</strong>
@@ -576,33 +487,32 @@
                 `;
             });
 
-            totalPriceEl.innerText = `Rp ${total.toLocaleString('id-ID')}`;
+            totalEl.innerText = `Rp ${total.toLocaleString('id-ID')}`;
         }
 
-        // --- KIRIM STRUK KE WA OUTLET DIINCAR ---
+        // KIRIM VIA WHATSAPP OUTLET
         function kirimKeWhatsApp() {
             if (cart.length === 0) {
-                alert("Pilih minimal satu menu terlebih dahulu!");
+                alert("Pilih menu terlebih dahulu!");
                 return;
             }
 
-            let pesan = `*-- PESANAN MASUK [${selectedOutlet.name}] --*\n\n`;
+            let text = `*-- PESANAN [${selectedOutlet.name}] --*\n\n`;
             let total = 0;
+
             cart.forEach((item, index) => {
-                pesan += `${index + 1}. ${item.name} - Rp ${item.price.toLocaleString('id-ID')}\n`;
+                text += `${index + 1}. ${item.name} - Rp ${item.price.toLocaleString('id-ID')}\n`;
                 total += item.price;
             });
-            pesan += `\n*TOTAL: Rp ${total.toLocaleString('id-ID')}*\n\n`;
-            pesan += "Mohon konfirmasi dan segera diproses, terima kasih!";
 
-            const encodedPesan = encodeURIComponent(pesan);
-            const waUrl = `https://wa.me/${selectedOutlet.phone}?text=${encodedPesan}`;
+            text += `\n*TOTAL BAYAR: Rp ${total.toLocaleString('id-ID')}*\n\n`;
+            text += "Mohon diproses, Terima kasih!";
 
-            // Buka WhatsApp
-            window.open(waUrl, '_blank');
+            const url = `https://wa.me/${selectedOutlet.phone}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
         }
 
-        // Inisialisasi saat pertama kali dibuka
+        // INI INISIALISASI UTAMA
         renderOutletList();
     </script>
 </body>
