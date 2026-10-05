@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu dan Profil  - Ayam Geprek Sa'i</title>
+    <title>Menu dan Profil - Ayam Geprek Sa'i (PT UKHUWAH BERKAH SEMESTA)</title>
     <!-- FontAwesome Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,7 +16,7 @@
         }
 
         body {
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             color: #222;
         }
 
@@ -29,7 +29,7 @@
             display: block;
         }
 
-        /* --- 1. HALAMAN UTAMA ELEGAN (RED BACKGROUND) --- */
+        /* --- 1. HALAMAN UTAMA ELEGAN (RED GRADIENT BACKGROUND) --- */
         #landing-screen {
             background: linear-gradient(135deg, #b31217 0%, #e52d27 50%, #880e12 100%);
             color: white;
@@ -43,14 +43,14 @@
             overflow: hidden;
         }
 
-        /* Dekorasi latar belakang berupa ornamen abstrak elegan */
+        /* Ornamen Dekorasi Background */
         #landing-screen::before {
             content: '';
             position: absolute;
             top: -100px;
             right: -100px;
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 50%;
             pointer-events: none;
@@ -61,16 +61,16 @@
             position: absolute;
             bottom: -120px;
             left: -120px;
-            width: 350px;
-            height: 350px;
-            background: rgba(0, 0, 0, 0.15);
+            width: 360px;
+            height: 360px;
+            background: rgba(0, 0, 0, 0.18);
             border-radius: 50%;
             pointer-events: none;
         }
 
         .brand-header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 2;
         }
@@ -84,7 +84,7 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 15px auto;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
             border: 4px solid rgba(255, 255, 255, 0.3);
         }
 
@@ -93,23 +93,34 @@
             height: auto;
         }
 
+        .company-subtitle {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffcdd2;
+            margin-bottom: 4px;
+        }
+
         .brand-header h1 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 6px;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .brand-header p {
-            font-size: 14px;
-            opacity: 0.9;
+            font-size: 13px;
+            opacity: 0.95;
             font-weight: 300;
-            letter-spacing: 0.5px;
+            max-width: 380px;
+            margin: 0 auto;
+            line-height: 1.4;
         }
 
-        /* TATA LETAK MENU UTAMA (GRID TOMBOL ELEGAN) */
+        /* GRID TOMBOL UTAMA */
         .main-menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -121,7 +132,7 @@
         }
 
         .btn-main-menu {
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.14);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.25);
             color: white;
@@ -150,13 +161,12 @@
         }
 
         .btn-main-menu span {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
-        /* MENAMBAHKAN EFFEK FULL WIDTH UNTUK TOMBOL CABANG/OUTLET */
         .btn-main-menu.highlight-outlet {
             grid-column: span 2;
             background: #ffffff;
@@ -168,6 +178,15 @@
         .btn-main-menu.highlight-outlet:hover {
             background: #f8f8f8;
             transform: translateY(-3px);
+        }
+
+        .landing-footer {
+            margin-top: 30px;
+            font-size: 11px;
+            opacity: 0.7;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
         }
 
         /* --- 2. LAYAR KASIR MENU --- */
@@ -214,6 +233,39 @@
             gap: 5px;
         }
 
+        /* TAB KATEGORI UNTUK NAVIGASI CEPAT MENU */
+        .category-tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin-bottom: 10px;
+            scrollbar-width: none;
+        }
+
+        .category-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+            color: #555;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: #d32f2f;
+            color: white;
+            border-color: #d32f2f;
+        }
+
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -225,7 +277,7 @@
             color: white;
             font-weight: 800;
             font-size: 13px;
-            padding: 7px 12px;
+            padding: 8px 12px;
             border-radius: 6px;
             margin: 18px 0 10px 0;
             text-transform: uppercase;
@@ -233,6 +285,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            scroll-margin-top: 60px;
         }
 
         .menu-grid {
@@ -436,7 +489,6 @@
             color: #888;
         }
 
-        /* TAMPILAN DAFTAR OUTLET DALAM MODAL */
         .outlet-list {
             display: flex;
             flex-direction: column;
@@ -578,25 +630,24 @@
 </head>
 <body>
 
-    <!-- 1. HALAMAN UTAMA / LANDING SCREEN (ELEGAN & DESAIN MERAH) -->
+    <!-- 1. HALAMAN UTAMA / LANDING SCREEN ELEGAN -->
     <div id="landing-screen" class="screen active">
         <div class="brand-header">
+            <div class="company-subtitle">PT UKHUWAH BERKAH SEMESTA</div>
             <div class="brand-logo-container">
                 <img src="logo sa'i.png" alt="Logo Ayam Geprek Sa'i">
             </div>
             <h1>AYAM GEPREK SA'I</h1>
-            <p>Cabang Area Ngacak Mamago (Nganjuk, Caruban, Kediri, Madiun, Magetan, & Ponorogo</p>
+            <p>Cabang Area Ngacak Mamago (Nganjuk, Caruban, Kediri, Madiun, Magetan, & Ponorogo)</p>
         </div>
 
-        <!-- PILIHAN TOMBOL MENU INTERAKTIF HALAMAN DEPAN -->
+        <!-- PILIHAN TOMBOL MENU UTAMA -->
         <div class="main-menu-grid">
-            <!-- Tombol Utama Cabang/Outlet -->
             <button class="btn-main-menu highlight-outlet" onclick="openModal('outlet-modal')">
                 <i class="fa-solid fa-store"></i>
                 <span>Pilih Cabang / Outlet</span>
             </button>
 
-            <!-- Tombol-tombol Informasi Tambahan -->
             <button class="btn-main-menu" onclick="openModal('profile-modal')">
                 <i class="fa-solid fa-user-tie"></i>
                 <span>Profil / Sales</span>
@@ -617,6 +668,10 @@
                 <span>Lain-Lain</span>
             </button>
         </div>
+
+        <div class="landing-footer">
+            &copy; Ayam Geprek Sa'i - PT Ukhuwah Berkah Semesta
+        </div>
     </div>
 
     <!-- 2. HALAMAN MENU KASIR -->
@@ -630,26 +685,37 @@
         </header>
 
         <div class="container">
+            <!-- TAB NAVIGASI CEPAT KATEGORI -->
+            <div class="category-tabs">
+                <a href="#cat-fc" class="tab-btn active">1. Ayam & Geprek</a>
+                <a href="#cat-favorit" class="tab-btn">2. Favorit</a>
+                <a href="#cat-suhe" class="tab-btn">3. Suhe</a>
+                <a href="#cat-sholeh" class="tab-btn">4. Sholeh</a>
+                <a href="#cat-sambal" class="tab-btn">5. Sambal</a>
+                <a href="#cat-camilan" class="tab-btn">6. Camilan</a>
+                <a href="#cat-minum" class="tab-btn">7. Minuman</a>
+            </div>
+
             <!-- 7 KATEGORI MENU LENGKAP -->
-            <div class="category-header"><i class="fa-solid fa-drumstick-bite"></i> 1. FRIED CHICKEN & AYAM GEPREK</div>
+            <div id="cat-fc" class="category-header"><i class="fa-solid fa-drumstick-bite"></i> 1. FRIED CHICKEN & AYAM GEPREK</div>
             <div class="menu-grid" id="grid-fc"></div>
 
-            <div class="category-header"><i class="fa-solid fa-fire"></i> 2. FAVORIT</div>
+            <div id="cat-favorit" class="category-header"><i class="fa-solid fa-fire"></i> 2. FAVORIT</div>
             <div class="menu-grid" id="grid-favorit"></div>
 
-            <div class="category-header"><i class="fa-solid fa-box"></i> 3. PAKET SUPER HEMAT (SUHE)</div>
+            <div id="cat-suhe" class="category-header"><i class="fa-solid fa-box"></i> 3. PAKET SUPER HEMAT (SUHE)</div>
             <div class="menu-grid" id="grid-suhe"></div>
 
-            <div class="category-header"><i class="fa-solid fa-star"></i> 4. PAKET SHOLEH</div>
+            <div id="cat-sholeh" class="category-header"><i class="fa-solid fa-star"></i> 4. PAKET SHOLEH</div>
             <div class="menu-grid" id="grid-sholeh"></div>
 
-            <div class="category-header"><i class="fa-solid fa-pepper-hot"></i> 5. SAMBAL & EXTRAS</div>
+            <div id="cat-sambal" class="category-header"><i class="fa-solid fa-pepper-hot"></i> 5. SAMBAL & EXTRAS</div>
             <div class="menu-grid" id="grid-sambal"></div>
 
-            <div class="category-header"><i class="fa-solid fa-cookie"></i> 6. CAMILAN</div>
+            <div id="cat-camilan" class="category-header"><i class="fa-solid fa-cookie"></i> 6. CAMILAN</div>
             <div class="menu-grid" id="grid-camilan"></div>
 
-            <div class="category-header"><i class="fa-solid fa-glass-water"></i> 7. MINUMAN</div>
+            <div id="cat-minum" class="category-header"><i class="fa-solid fa-glass-water"></i> 7. MINUMAN</div>
             <div class="menu-grid" id="grid-minum"></div>
 
             <!-- KERANJANG BELANJA -->
@@ -695,14 +761,14 @@
             </div>
             <div class="profile-card-item">
                 <h4>Area Manager</h4>
-                <p><strong>Nama:</strong> Bpk. Mochammad Mustakim </p>
+                <p><strong>Nama:</strong> Bpk. Mochammad Mustakim</p>
                 <p><strong>Jabatan:</strong> Area Sales Manager</p>
                 <p><strong>No. HP/WA:</strong> <a href="https://wa.me/6287765273073" target="_blank" style="color:#25d366;">+62 877-6527-3073</a></p>
             </div>
             <div class="profile-card-item">
                 <h4>Area Coordinator</h4>
-                <p><strong>Nama:</strong> Bpk. M. Ilham </p>
-                <p><strong>Jabatan:</strong> Area Sales Coordinator </p>
+                <p><strong>Nama:</strong> Bpk. M. Ilham</p>
+                <p><strong>Jabatan:</strong> Area Sales Coordinator</p>
                 <p><strong>No. HP/WA:</strong> <a href="https://wa.me/6285732766276" target="_blank" style="color:#25d366;">+62 857-3276-6276</a></p>
             </div>
         </div>
@@ -740,8 +806,8 @@
                 <p>Promo Paket fun cooking</p>
             </div>
             <div class="agenda-item">
-                <h4>Program Paket Catering </h4>
-                <p><small>Status: siap menerima pesanan hingga 5.000 box per hari</small></p>
+                <h4>Program Paket Catering</h4>
+                <p><small>Status: Siap menerima pesanan hingga 5.000 box per hari</small></p>
                 <p>Penawaran khusus pesanan massal untuk acara sekolah, kantor, dan hajatan.</p>
             </div>
         </div>
@@ -782,7 +848,7 @@
             <div class="payment-option">
                 <label>Metode Transfer / Bank Tujuan:</label>
                 <select id="pay-method">
-                    <option value="BCA - 1234567890 a/n Ayam Geprek Sa'i">Bank BCA - 1234567890</option>
+                    <option value="BCA - 3660428185 a/n Mochammad Mustakim">Bank BCA - 3660428185</option>
                     <option value="BRI - 0987654321 a/n Ayam Geprek Sa'i">Bank BRI - 0987654321</option>
                     <option value="Mandiri - 1122334455 a/n Ayam Geprek Sa'i">Bank Mandiri - 1122334455</option>
                     <option value="QRIS / E-Wallet (Gopay/OVO/Dana)">QRIS / All E-Wallet</option>
@@ -790,8 +856,8 @@
             </div>
 
             <div class="bank-info">
-                <p>Transfer ke Rekening Area (Pemesanana Melalui Area):</p>
-                <strong id="selected-bank-info">BCA: 3660428185 a/n Mochammad mustakim</strong><br><br>
+                <p>Transfer ke Rekening Area (Pemesanan Melalui Area):</p>
+                <strong id="selected-bank-info">BCA: 3660428185 a/n Mochammad Mustakim</strong><br><br>
                 <p>Jumlah Harus Dibayar: <strong id="pay-amount-display" style="font-size:15px;">Rp 0</strong></p>
             </div>
 
@@ -812,6 +878,7 @@
             <div class="receipt-box" id="receipt-print-area">
                 <div class="receipt-header">
                     <h2>AYAM GEPREK SA'I</h2>
+                    <p style="font-size:10px; font-weight:bold;">PT UKHUWAH BERKAH SEMESTA</p>
                     <p id="r-outlet-name">Outlet Name</p>
                     <p id="r-date-time">00/00/0000 00:00</p>
                 </div>
