@@ -1,2 +1,2 @@
-# Aplikasi_Kasir_Mudah_ayam_geprek_sai
-aplikasi untuk memudahkan transaksi melalui link yang dapat memunculkan struk biaya dan langsung sambung ke whatsapp
+# Ayam_Geprek_Sai_Menu
+Web untuk memudahkan customer melalui link yang dapat memunculkan menu langsung sambung ke whatsapp masing-masinng cabang
